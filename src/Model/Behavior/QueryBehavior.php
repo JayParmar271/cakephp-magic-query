@@ -49,7 +49,7 @@ class QueryBehavior extends Behavior
      * @param  array $fields Fields
      * @param  array $conditions Conditions
      * @param  array $options Options
-     * @return \Cake\Datasource\QueryInterface
+     * @return \Cake\Datasource\QueryInterface|null
      */
     public function getRecord($fields = [], $conditions = [], $options = [])
     {
@@ -113,5 +113,38 @@ class QueryBehavior extends Behavior
         $entity = $this->getTable()->patchEntity($entity, $data);
 
         return $this->getTable()->save($entity);
+    }
+
+    /**
+     * Delete record by id
+     *
+     * @param  mixed $id Primary key value to find.
+     * @return \Cake\Datasource\EntityInterface|false
+     */
+    public function deleteRecordById($id)
+    {
+        $entity = $this->getTable()->get($id);
+
+        return $this->getTable()->delete($entity);
+    }
+
+    /**
+     * Delete record
+     *
+     * @param  array $conditions Conditions
+     * @return \Cake\Datasource\EntityInterface|false
+     */
+    public function deleteRecord($conditions = [])
+    {
+        $entity = $this->getTable()
+            ->find()
+            ->where($conditions)
+            ->first();
+
+        if (empty($entity)) {
+            return false;
+        }
+
+        return $this->getTable()->delete($entity);
     }
 }
