@@ -2,7 +2,7 @@
 
 1. ```getRecord($fields, $conditions, $options):``` To retrieve single record
    ##### Options:
-    hydrate: true,false to enable, disable hydration
+    - hydrate: true,false to enable, disable hydration
     ```
     $this->Users->getRecord(['id', 'name'], ['id' => '1'], $options);
     ```
