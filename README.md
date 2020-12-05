@@ -22,7 +22,9 @@ composer require jayparmar271/cakephpmagic-query
 2. Use getRecord() to get single record.
 ```
     $this->Users->getRecord(['name'], ['id' => '1']);
-```    
+```   
+
+Check more examples [here](EXAMPLES.md).
 
 ## License
-The MIT [License](LICENSE). Please see License File for more information.
+The MIT License. Please see [License](LICENSE) File for more information.
