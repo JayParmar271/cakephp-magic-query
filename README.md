@@ -9,3 +9,6 @@ The recommended way to install composer packages is:
 ```
 composer require jayparmar271/cakephpmagic-query
 ```
+
+## License
+License under the [MIT License](LICENSE)
