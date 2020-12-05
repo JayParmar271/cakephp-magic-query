@@ -37,6 +37,7 @@ class QueryBehavior extends Behavior
             'limit' => self::LIMIT,
             'page' => self::PAGE,
             'orderBy' => ['id' => 'DESC'],
+            'hydrate' => false,
         ]);
 
         return $resolver->resolve($options);
@@ -45,13 +46,21 @@ class QueryBehavior extends Behavior
     /**
      * Get single record
      *
-     * @param  mixed $id Primary key value to find.
-     * @return \Cake\Datasource\EntityInterface
-     * @throws \Cake\Datasource\Exception\InvalidPrimaryKeyException
+     * @param  array $fields Fields
+     * @param  array $conditions Conditions
+     * @param  array $options Options
+     * @return \Cake\Datasource\QueryInterface
      */
-    public function getRecord($id)
+    public function getRecord($fields = [], $conditions = [], $options = [])
     {
-        return $this->getTable()->get($id);
+        $options = $this->resolve($options);
+
+        return $this->getTable()
+            ->find()
+            ->enableHydration($options['hydrate'])
+            ->select($fields)
+            ->where($conditions)
+            ->first();
     }
 
     /**
@@ -68,11 +77,13 @@ class QueryBehavior extends Behavior
 
         return $this->getTable()
             ->find()
+            ->enableHydration($options['hydrate'])
             ->select($fields)
             ->where($conditions)
             ->order($options['orderBy'])
             ->limit($options['limit'])
-            ->page($options['page']);
+            ->page($options['page'])
+            ->toArray();
     }
 
     /**
