@@ -83,10 +83,10 @@ class QueryBehavior extends Behavior
      */
     public function saveRecord($data)
     {
-        $table = $this->getTable()->newEntity();
-        $table = $this->getTable()->patchEntity($table, $data);
+        $entity = $this->getTable()->newEntity();
+        $entity = $this->getTable()->patchEntity($entity, $data);
 
-        return $this->getTable()->save($table);
+        return $this->getTable()->save($entity);
     }
 
     /**
@@ -98,9 +98,9 @@ class QueryBehavior extends Behavior
      */
     public function updateRecord($id, $data)
     {
-        $table = $this->getTable()->get($id);
-        $table = $this->getTable()->patchEntity($table, $data);
+        $entity = $this->getTable()->get($id);
+        $entity = $this->getTable()->patchEntity($entity, $data);
 
-        return $this->getTable()->save($table);
+        return $this->getTable()->save($entity);
     }
 }
