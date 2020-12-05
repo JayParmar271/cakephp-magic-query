@@ -172,8 +172,6 @@ class QueryBehavior extends Behavior
             return false;
         }
 
-        $this->saveMany();
-
         return $this->getTable()->delete($entity);
     }
 }
