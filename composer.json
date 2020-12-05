@@ -20,5 +20,6 @@
             "MagicQuery\\Test\\": "tests/",
             "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
         }
-    }
+    },
+    "prefer-stable": true
 }
