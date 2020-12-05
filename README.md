@@ -25,4 +25,4 @@ composer require jayparmar271/cakephpmagic-query
 ```    
 
 ## License
-The MIT [License](License). Please see License File for more information.
+The MIT [License](LICENSE). Please see License File for more information.
