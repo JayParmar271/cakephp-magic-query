@@ -14,7 +14,7 @@ composer require jayparmar271/cakephp-magic-query
 ```
 
 ## Usage
-1. Add behavior in your table.
+1. Add behavior in your table. (../src/Model/Table/UsersTable.php)
  ```
      $this->addBehavior('MagicQuery.Query');
  ```
