@@ -101,6 +101,20 @@ class QueryBehavior extends Behavior
     }
 
     /**
+     * Save records
+     *
+     * @param  array $data Key value list of fields to be merged into the entity.
+     * @return bool|\Cake\Datasource\EntityInterface[]|\Cake\Datasource\ResultSetInterface
+     * False on failure, entities list on success.
+     */
+    public function saveRecords($data)
+    {
+        $entities = $this->getTable()->newEntities($data);
+
+        return $this->getTable()->saveMany($entities);
+    }
+
+    /**
      * Update record
      *
      * @param  int $id Primary key value to find.
@@ -173,5 +187,29 @@ class QueryBehavior extends Behavior
         }
 
         return $this->getTable()->delete($entity);
+    }
+
+    /**
+     * Delete multiple records
+     *
+     * @param  array $conditions conditions
+     * @return \Cake\Datasource\EntityInterface|false|int
+     */
+    public function deleteRecords($conditions)
+    {
+        $count = 0;
+
+        $entities = $this->getTable()
+            ->find()
+            ->where($conditions)
+            ->toArray();
+
+        foreach ($entities as $entity) {
+            if ($this->getTable()->delete($entity)) {
+                $count += 1;
+            }
+        }
+
+        return $count;
     }
 }
