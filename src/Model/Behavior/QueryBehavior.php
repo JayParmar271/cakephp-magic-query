@@ -11,18 +11,22 @@ class QueryBehavior extends Behavior
 {
     /**
      * Set default limit
+     *
+     * @var int
      */
     private const LIMIT = 100;
 
     /**
      * Set default page
+     *
+     * @var int
      */
     private const PAGE = 1;
 
     /**
      * Resolve default options
      *
-     * @param array $options Set Options
+     * @param  array $options Set Options
      * @return array
      */
     public function resolve(array $options = [])
@@ -41,26 +45,22 @@ class QueryBehavior extends Behavior
     /**
      * Get single record
      *
-     * @param int $id Id
-     * @return \Cake\Datasource\Exception\RecordNotFoundException
+     * @param  mixed $id Primary key value to find.
+     * @return \Cake\Datasource\EntityInterface
+     * @throws \Cake\Datasource\Exception\InvalidPrimaryKeyException
      */
     public function getRecord($id)
     {
-        return $this->getTable()->get(
-            $id,
-            [
-                'contain' => [],
-            ]
-        );
+        return $this->getTable()->get($id);
     }
 
     /**
      * Get list of records
      *
-     * @param  array  $fields Fields
-     * @param  array  $conditions Conditions
-     * @param  array  $options Options
-     * @return \Cake\Datasource\Exception\RecordNotFoundException
+     * @param  array $fields Fields
+     * @param  array $conditions Conditions
+     * @param  array $options Options
+     * @return \Cake\Database\Query
      */
     public function getRecords($fields = [], $conditions = [], $options = [])
     {
@@ -78,8 +78,8 @@ class QueryBehavior extends Behavior
     /**
      * Save record
      *
-     * @param array $data Data
-     * @return array
+     * @param  array $data Key value list of fields to be merged into the entity.
+     * @return \Cake\Datasource\EntityInterface|false
      */
     public function saveRecord($data)
     {
@@ -92,20 +92,13 @@ class QueryBehavior extends Behavior
     /**
      * Update record
      *
-     * @param  int $id Unique id
-     * @param  array $data Data
-     *
-     * @return array
+     * @param  int $id Primary key value to find.
+     * @param  array $data Key value list of fields to be merged into the entity.
+     * @return \Cake\Datasource\EntityInterface|false
      */
     public function updateRecord($id, $data)
     {
-        $table = $this->getTable()->get(
-            $id,
-            [
-                'contain' => [],
-            ]
-        );
-
+        $table = $this->getTable()->get($id);
         $table = $this->getTable()->patchEntity($table, $data);
 
         return $this->getTable()->save($table);
