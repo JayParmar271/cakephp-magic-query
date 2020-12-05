@@ -9,11 +9,11 @@
 
 2. ```getRecords($fields, $conditions, $options):``` To retrieve records
     ##### Options:
-    hydrate: true,false to enable, disable hydration
+    - hydrate: true,false to enable, disable hydration
 
-    orderBy: get record according to order
+    - orderBy: get record according to order
 
-    limit: Set limit 
+    - limit: Set limit 
 
     ```
     $options = [
