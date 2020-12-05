@@ -23,8 +23,7 @@ composer require jayparmar271/cakephp-magic-query
 ```
     $this->Users->getRecord(['name'], ['id' => '1']);
 ```   
-
-Check more examples [here](EXAMPLES.md).
+You can find more examples [here](EXAMPLES.md).
 
 ## License
 The MIT License. Please see [License](LICENSE) File for more information.
