@@ -49,3 +49,28 @@
     
     $this->Users->saveRecords($data);
     ```
+
+5. ```updateRecord($id, $data):``` To update single record
+    ```
+    $this->Users->saveRecords(['id' => 1], ['age' => '25']);
+    ```
+    
+6. ```updateRecords($data, $conditions):``` To update into multiple rows
+    ```
+    $this->Users->updateRecords(['age' => '25'], ['name' => 'Jay']);
+    ```
+    
+7. ```deleteRecord($conditions):``` To delete single record
+    ```
+    $this->Users->deleteRecord(['name' => 'Frank']);
+    ```
+
+8. ```deleteRecordById($id):``` To delete record by id
+    ```
+    $this->Users->deleteRecordById($id);
+    ```
+
+9. ```deleteRecords($conditions):``` To delete multiple records
+    ```
+    $this->Users->deleteRecords(['age' => '25']);
+    ```
