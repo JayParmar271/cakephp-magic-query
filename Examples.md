@@ -1,0 +1,49 @@
+### Examples:
+
+1. ```getRecord($fields, $conditions, $options):``` To retrieve single record
+   ##### Options:
+    hydrate: true,false to enable, disable hydration
+    ```
+    $this->Users->getRecord(['id', 'name'], ['id' => '1'], $options);
+    ```
+
+2. ```getRecords($fields, $conditions, $options):``` To retrieve records
+    ##### Options:
+    hydrate: true,false to enable, disable hydration
+    orderBy: get record according to order
+    limit: Set limit 
+
+    ```
+    $options = [
+        'hydrate' => true, // To enable hydration
+        'orderBy' => ['id' => 'DESC'],
+        'limit' => '100',
+    ];
+
+    $this->Users->getRecords(
+        ['id', 'name'], 
+        ['id' => '1'], 
+        $options
+    );
+    ```
+    
+3. ```saveRecord($data):``` To save single record
+    ```
+    $this->Users->saveRecord(['name' => 'Frank', 'age' => '55']);
+    ```
+    
+4. ```saveRecords($data):``` To save multiple records
+    ```
+    $data = [
+        [
+            'name' => 'Jay',
+            'age' => '24',
+        ],
+        [
+            'name' => 'Ishan',
+            'age' => '26',
+        ],
+    ];
+    
+    $this->Users->saveRecords($data);
+    ```
