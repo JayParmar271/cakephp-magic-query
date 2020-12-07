@@ -10,7 +10,7 @@ You can install this plugin into your CakePHP application using [composer](https
 The recommended way to install composer packages is:
 
 ```
-composer require jayparmar271/cakephp-magic-query
+composer require jayparmar271/cakephp-magic-query:0.5.1
 ```
 
 ## Usage
