@@ -21,17 +21,20 @@ composer require jayparmar271/cakephp-magic-query
 
 ## Usage
 1. Add behavior in your table. (../src/Model/Table/UsersTable.php)
- ```
-     $this->addBehavior('MagicQuery.Query');
- ```
+
+```
+    $this->addBehavior('MagicQuery.Query');
+```
 
 2. Use getRecord() to get single record.
+
 ```
     $this->Users->getRecord(['name'], ['id' => '1']);
 ```   
 
 ### To set default options:
 1. Create new config file and add your default options. (/config/magic_query.php)
+
 ```php
 return [
   'MagicQuery' => [
@@ -39,11 +42,13 @@ return [
     'page' => 1,
     'orderBy' => ['id' => 'ASC'],
     'hydrate' => false,
+    'validate' => true,
   ],
 ];
 ```
 
 2. Load into your bootstrap.php (/config/bootstrap.php)
+
 ```php
 /*
  * Load magic query file
