@@ -39,6 +39,7 @@ class QueryBehavior extends Behavior
             'page' => Configure::read('MagicQuery.page') ?? self::PAGE,
             'orderBy' => Configure::read('MagicQuery.orderBy') ?? ['id' => 'DESC'],
             'hydrate' => Configure::read('MagicQuery.hydrate') ?? false,
+            'validate' => Configure::read('MagicQuery.validate') ?? true,
         ]);
 
         return $resolver->resolve($options);
@@ -91,12 +92,23 @@ class QueryBehavior extends Behavior
      * Save record
      *
      * @param  array $data Key value list of fields to be merged into the entity.
+     * @param  array $options Options
      * @return \Cake\Datasource\EntityInterface|false
      */
-    public function saveRecord($data)
+    public function saveRecord($data, $options = [])
     {
+        $options = $this->resolve($options);
+
         $entity = $this->getTable()->newEntity();
-        $entity = $this->getTable()->patchEntity($entity, $data);
+        $entity = $this->getTable()->patchEntity(
+            $entity,
+            $data,
+            ['validate' => $options['validate']]
+        );
+
+        if (! empty($entity->getErrors())) {
+            return $entity;
+        }
 
         return $this->getTable()->save($entity);
     }
