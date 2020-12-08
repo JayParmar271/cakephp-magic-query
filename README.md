@@ -25,9 +25,7 @@ composer require jayparmar271/cakephp-magic-query
 ```   
 
 ### To set default options:
-1. Create new config file. (/config/magic_query.php)
-
-2. Write your default options
+1. Create new config file and add your default options. (/config/magic_query.php)
 ```php
 return [
   'MagicQuery' => [
@@ -39,7 +37,7 @@ return [
 ];
 ```
 
-3. Load into your bootstrap.php (/config/bootstrap.php)
+2. Load into your bootstrap.php (/config/bootstrap.php)
 ```php
 /*
  * Load magic query file
