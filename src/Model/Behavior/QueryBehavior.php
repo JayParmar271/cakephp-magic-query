@@ -1,6 +1,7 @@
 <?php
 namespace MagicQuery\Model\Behavior;
 
+use Cake\Core\Configure;
 use Cake\ORM\Behavior;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -34,10 +35,10 @@ class QueryBehavior extends Behavior
         $resolver = new OptionsResolver();
 
         $resolver->setDefaults([
-            'limit' => self::LIMIT,
-            'page' => self::PAGE,
-            'orderBy' => ['id' => 'DESC'],
-            'hydrate' => false,
+            'limit' => Configure::read('MagicQuery.limit') ?? self::LIMIT,
+            'page' => Configure::read('MagicQuery.page') ?? self::PAGE,
+            'orderBy' => Configure::read('MagicQuery.orderBy') ?? ['id' => 'DESC'],
+            'hydrate' => Configure::read('MagicQuery.hydrate') ?? false,
         ]);
 
         return $resolver->resolve($options);
