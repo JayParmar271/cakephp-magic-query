@@ -188,7 +188,7 @@ class QueryBehavior extends Behavior
      * @param  array $conditions Conditions
      * @return \Cake\Datasource\EntityInterface|false
      */
-    public function deleteRecord($conditions = [])
+    public function deleteRecord($conditions)
     {
         $entity = $this->getTable()
             ->find()
