@@ -29,6 +29,32 @@ composer require jayparmar271/cakephp-magic-query
 ```
     $this->Users->getRecord(['name'], ['id' => '1']);
 ```   
+
+### To set default options:
+1. Create new config file and add your default options. (/config/magic_query.php)
+```php
+return [
+  'MagicQuery' => [
+    'limit' => 2,
+    'page' => 1,
+    'orderBy' => ['id' => 'ASC'],
+    'hydrate' => false,
+  ],
+];
+```
+
+2. Load into your bootstrap.php (/config/bootstrap.php)
+```php
+/*
+ * Load magic query file
+ */
+if (file_exists(CONFIG . 'magic_query.php')) {
+    Configure::load('magic_query');
+}
+```
+
+That's all. Enjoy!
+
 You can find more examples [here](EXAMPLES.md).
 
 ## License
