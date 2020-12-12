@@ -128,4 +128,104 @@ class ProductsTableTest extends TestCase
         $this->assertEquals('Product 1', $product['name']);
         $this->assertCount(1, $product);
     }
+
+    /**
+     * Test save record
+     *
+     * @return void
+     */
+    public function testSaveRecord()
+    {
+        $product = $this->Products->saveRecord([
+            'name' => 'Casiotone',
+            'description' => 'This is lorem ipsum dummy test1',
+        ]);
+
+        $this->assertEquals('Casiotone', $product['name']);
+        $this->assertEquals('This is lorem ipsum dummy test1', $product['description']);
+    }
+
+    /**
+     * Test save records
+     *
+     * @return void
+     */
+    public function testSaveRecords()
+    {
+        $productsArr = [
+            [
+                'name' => 'Test product 1',
+                'description' => 'This is Test product 1 description',
+            ],
+            [
+                'name' => 'Test product 2',
+                'description' => 'This is Test product 2 description',
+            ],
+        ];
+
+        $products = $this->Products->saveRecords($productsArr);
+
+        $this->assertCount(2, $products);
+        $this->assertEquals('Test product 1', $products[0]['name']);
+        $this->assertEquals('This is Test product 1 description', $products[0]['description']);
+        $this->assertEquals('Test product 2', $products[1]['name']);
+        $this->assertEquals('This is Test product 2 description', $products[1]['description']);
+    }
+
+    /**
+     * Test update record
+     *
+     * @return void
+     */
+    public function testUpdateRecord()
+    {
+        $product = $this->Products->updateRecord(
+            1,
+            ['name' => 'Samsung', 'description' => 'Mobile company']
+        );
+
+        $this->assertEquals('Samsung', $product['name']);
+        $this->assertEquals('Mobile company', $product['description']);
+    }
+
+    /**
+     * Test update records
+     *
+     * @return void
+     */
+    public function testCountAndUpdateRecords()
+    {
+        $productsCount = $this->Products->countRecords(['description' => 'Product desc']);
+        $updatedProducts = $this->Products->updateRecords(
+            ['name' => 'Samsung', 'description' => 'Mobile Company'],
+            ['description' => 'Product desc']
+        );
+
+        $this->assertEquals($productsCount, $updatedProducts);
+    }
+
+    /**
+     * Test delete record by id
+     *
+     * @return void
+     */
+    public function testDeleteRecordById()
+    {
+        $delete = $this->Products->deleteRecordById(1);
+
+        $this->assertTrue($delete);
+    }
+
+    /**
+     * Test delete multiple records
+     *
+     * @return void
+     */
+    public function testDeleteRecords()
+    {
+        $productsCount = $this->Products->countRecords(['description' => 'Product desc']);
+        $deletedProductCount = $this->Products->deleteRecords(['description' => 'Product desc']);
+
+        $this->assertEquals($productsCount, $deletedProductCount);
+    }
 }

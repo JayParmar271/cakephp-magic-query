@@ -107,7 +107,20 @@ class ProductsFixture extends TestFixture
                 'created' => '2020-12-12 07:05:09',
                 'modified' => '2020-12-12 07:05:09',
             ],
-
+            [
+                'id' => 11,
+                'name' => 'Product 11',
+                'description' => 'Product desc',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 12,
+                'name' => 'Product 12',
+                'description' => 'Product desc',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
         ];
         parent::init();
     }
