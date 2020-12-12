@@ -46,6 +46,24 @@ class QueryBehavior extends Behavior
     }
 
     /**
+     * Added count records
+     *
+     * @return int
+     */
+    public function countRecords($conditions)
+    {
+        if (empty($conditions)) {
+            return 0;
+        }
+
+        return $this->getTable()
+            ->find()
+            ->select(['id'])
+            ->where($conditions)
+            ->count();
+    }
+
+    /**
      * Get single record
      *
      * @param  array $fields Fields
