@@ -47,6 +47,7 @@ class QueryBehavior extends Behavior
 
     /**
      * Added count records
+     * @param  array $conditions Conditions
      *
      * @return int
      */
