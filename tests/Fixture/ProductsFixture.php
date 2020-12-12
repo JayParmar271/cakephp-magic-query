@@ -39,11 +39,75 @@ class ProductsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'name' => 'Lorem ipsum dolor sit amet',
-                'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+                'name' => 'Product 1',
+                'description' => 'Product desc 1',
                 'created' => '2020-12-12 07:05:09',
                 'modified' => '2020-12-12 07:05:09',
             ],
+            [
+                'id' => 2,
+                'name' => 'Product 2',
+                'description' => 'Product desc 2',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 3,
+                'name' => 'Product 3',
+                'description' => 'Product desc 3',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 4,
+                'name' => 'Product 4',
+                'description' => 'Product desc 4',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 5,
+                'name' => 'Product 5',
+                'description' => 'Product desc 5',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 6,
+                'name' => 'Product 6',
+                'description' => 'Product desc 6',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 7,
+                'name' => 'Product 7',
+                'description' => 'Product desc 7',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 8,
+                'name' => 'Product 8',
+                'description' => 'Product desc 8',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 9,
+                'name' => 'Product 9',
+                'description' => 'Product desc 9',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+            [
+                'id' => 10,
+                'name' => 'Product 10',
+                'description' => 'Product desc 10',
+                'created' => '2020-12-12 07:05:09',
+                'modified' => '2020-12-12 07:05:09',
+            ],
+
         ];
         parent::init();
     }

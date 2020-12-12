@@ -78,4 +78,54 @@ class ProductsTableTest extends TestCase
         $this->assertNotEmpty($products);
         $this->assertTrue(is_object($products[0]));
     }
+
+    /**
+     * Test get records options
+     *
+     * @return void
+     */
+    public function testGetRecordsResultOptions()
+    {
+        // Test limit option
+        $products = $this->Products->getRecords([], [], ['limit' => 2]);
+
+        $this->assertCount(2, $products);
+
+        // Test page and order by option
+        $products = $this->Products->getRecords(
+            ['name'],
+            [],
+            ['page' => 2, 'limit' => 2, 'orderBy' => ['id' => 'ASC']]
+        );
+
+        $this->assertEquals('Product 3', $products[0]['name']);
+        $this->assertCount(2, $products);
+    }
+
+    /**
+     * Test get record
+     *
+     * @return void
+     */
+    public function testGetRecord()
+    {
+        $product = $this->Products->getRecord([], ['id' => 1]);
+
+        $this->assertTrue(is_array($product));
+        $this->assertFalse(is_object($product));
+
+        $product = $this->Products->getRecord([], ['id' => 1], ['hydrate' => true]);
+
+        $this->assertFalse(is_array($product));
+        $this->assertTrue(is_object($product));
+
+        // Test order by option
+        $product = $this->Products->getRecord(
+            ['name'],
+            [],
+            ['page' => 2, 'limit' => 2, 'orderBy' => ['id' => 'ASC']]
+        );
+        $this->assertEquals('Product 1', $product['name']);
+        $this->assertCount(1, $product);
+    }
 }
