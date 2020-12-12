@@ -2,6 +2,14 @@
     "name": "jayparmar271/cakephp-magic-query",
     "description": "MagicQuery plugin for CakePHP",
     "type": "cakephp-plugin",
+    "keywords": [
+        "plugin",
+        "cakephp",
+        "cakephp-plugin",
+        "rapid-query",
+        "cakephp3",
+        "cakephp4"
+    ],
     "license": "MIT",
     "require": {
         "symfony/options-resolver": "^5.2",
