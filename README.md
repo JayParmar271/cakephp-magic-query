@@ -3,6 +3,10 @@
 [![Latest Stable Version](https://poser.pugx.org/JayParmar271/cakephp-magic-query/v/stable)](https://packagist.org/packages/JayParmar271/cakephp-magic-query)
 [![Total Downloads](https://poser.pugx.org/JayParmar271/cakephp-magic-query/downloads)](https://packagist.org/packages/JayParmar271/cakephp-magic-query)
 [![License](https://poser.pugx.org/JayParmar271/cakephp-magic-query/license)](https://packagist.org/packages/JayParmar271/cakephp-magic-query)
+![Tests](https://github.com/JayParmar271/cakephp-magic-query/workflows/Run%20tests/badge.svg?branch=master)
+![PHPStan Check](https://github.com/JayParmar271/cakephp-magic-query/workflows/Run%20PHPStan/badge.svg?branch=master)
+![Coding Style Check](https://github.com/JayParmar271/cakephp-magic-query/workflows/Coding%20Style/badge.svg?branch=master)
+
 
 Simple query builder made with CakePHP
 
