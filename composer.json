@@ -33,6 +33,7 @@
     "scripts": {
         "cs-fix": "phpcbf --extensions=php ./src ./tests",
         "cs-check": "phpcs -p --extensions=php ./src ./tests",
+        "test": "phpunit --colors=always",
         "test-setup": "cp phpunit.xml.dist phpunit.xml"
     },
     "prefer-stable": true,
