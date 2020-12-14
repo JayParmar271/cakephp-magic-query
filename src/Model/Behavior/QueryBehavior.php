@@ -40,6 +40,7 @@ class QueryBehavior extends Behavior
             'orderBy' => Configure::read('MagicQuery.orderBy') ?? ['id' => 'DESC'],
             'hydrate' => Configure::read('MagicQuery.hydrate') ?? false,
             'validate' => Configure::read('MagicQuery.validate') ?? true,
+            'contain' => [],
         ]);
 
         return $resolver->resolve($options);
@@ -80,6 +81,7 @@ class QueryBehavior extends Behavior
             ->find()
             ->enableHydration($options['hydrate'])
             ->select($fields)
+            ->contain($options['contain'])
             ->where($conditions)
             ->first();
     }
@@ -100,6 +102,7 @@ class QueryBehavior extends Behavior
             ->find()
             ->enableHydration($options['hydrate'])
             ->select($fields)
+            ->contain($options['contain'])
             ->where($conditions)
             ->order($options['orderBy'])
             ->limit($options['limit'])

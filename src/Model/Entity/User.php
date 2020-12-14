@@ -4,16 +4,16 @@ namespace MagicQuery\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Product Entity
+ * User Entity
  *
  * @property int $id
- * @property int $user_id
- * @property string $name
- * @property string $description
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
+ * @property string|null $name
+ * @property string|null $email
+ * @property string|null $password
+ *
+ * @property \MagicQuery\Model\Entity\Post[] $posts
  */
-class Product extends Entity
+class User extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -26,9 +26,17 @@ class Product extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'user_id' => true,
-        'description' => true,
-        'created' => true,
-        'modified' => true,
+        'email' => true,
+        'password' => true,
+        'posts' => true,
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var array
+     */
+    protected $_hidden = [
+        'password',
     ];
 }

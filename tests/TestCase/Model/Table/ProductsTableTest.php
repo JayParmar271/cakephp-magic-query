@@ -138,6 +138,7 @@ class ProductsTableTest extends TestCase
     {
         $product = $this->Products->saveRecord([
             'name' => 'Casiotone',
+            'user_id' => 1,
             'description' => 'This is lorem ipsum dummy test1',
         ]);
 
@@ -156,10 +157,12 @@ class ProductsTableTest extends TestCase
             [
                 'name' => 'Test product 1',
                 'description' => 'This is Test product 1 description',
+                'user_id' => 2,
             ],
             [
                 'name' => 'Test product 2',
                 'description' => 'This is Test product 2 description',
+                'user_id' => 2,
             ],
         ];
 

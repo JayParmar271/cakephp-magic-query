@@ -16,6 +16,7 @@ class ProductsFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'user_id' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'name' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_0900_ai_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'description' => ['type' => 'text', 'length' => null, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_0900_ai_ci', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
@@ -39,6 +40,7 @@ class ProductsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'user_id' => 1,
                 'name' => 'Product 1',
                 'description' => 'Product desc 1',
                 'created' => '2020-12-12 07:05:09',
@@ -46,6 +48,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 2,
+                'user_id' => 2,
                 'name' => 'Product 2',
                 'description' => 'Product desc 2',
                 'created' => '2020-12-12 07:05:09',
@@ -53,6 +56,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 3,
+                'user_id' => 2,
                 'name' => 'Product 3',
                 'description' => 'Product desc 3',
                 'created' => '2020-12-12 07:05:09',
@@ -60,6 +64,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 4,
+                'user_id' => 2,
                 'name' => 'Product 4',
                 'description' => 'Product desc 4',
                 'created' => '2020-12-12 07:05:09',
@@ -67,6 +72,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 5,
+                'user_id' => 1,
                 'name' => 'Product 5',
                 'description' => 'Product desc 5',
                 'created' => '2020-12-12 07:05:09',
@@ -74,6 +80,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 6,
+                'user_id' => 3,
                 'name' => 'Product 6',
                 'description' => 'Product desc 6',
                 'created' => '2020-12-12 07:05:09',
@@ -81,6 +88,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 7,
+                'user_id' => 3,
                 'name' => 'Product 7',
                 'description' => 'Product desc 7',
                 'created' => '2020-12-12 07:05:09',
@@ -88,6 +96,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 8,
+                'user_id' => 3,
                 'name' => 'Product 8',
                 'description' => 'Product desc 8',
                 'created' => '2020-12-12 07:05:09',
@@ -95,6 +104,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 9,
+                'user_id' => 3,
                 'name' => 'Product 9',
                 'description' => 'Product desc 9',
                 'created' => '2020-12-12 07:05:09',
@@ -102,6 +112,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 10,
+                'user_id' => 3,
                 'name' => 'Product 10',
                 'description' => 'Product desc 10',
                 'created' => '2020-12-12 07:05:09',
@@ -109,6 +120,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 11,
+                'user_id' => 2,
                 'name' => 'Product 11',
                 'description' => 'Product desc',
                 'created' => '2020-12-12 07:05:09',
@@ -116,6 +128,7 @@ class ProductsFixture extends TestFixture
             ],
             [
                 'id' => 12,
+                'user_id' => 2,
                 'name' => 'Product 12',
                 'description' => 'Product desc',
                 'created' => '2020-12-12 07:05:09',
