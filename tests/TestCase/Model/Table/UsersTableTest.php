@@ -24,7 +24,7 @@ class UsersTableTest extends TestCase
      */
     public $fixtures = [
         'plugin.MagicQuery.Users',
-        'plugin.MagicQuery.Posts',
+        'plugin.MagicQuery.Products',
     ];
 
     /**
@@ -52,32 +52,28 @@ class UsersTableTest extends TestCase
     }
 
     /**
-     * Test initialize method
+     * Test Get record with contain
      *
      * @return void
      */
-    public function testInitialize()
+    public function testGetRecordWithContain()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $user = $this->Users->getRecord([], ['id' => 1], ['contain' => 'Products']);
+
+        $this->assertNotEmpty($user['products']);
+        $this->assertTrue(is_array($user['products']));
     }
 
     /**
-     * Test validationDefault method
+     * Test Get records with contain
      *
      * @return void
      */
-    public function testValidationDefault()
+    public function testGetRecordsWithContain()
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $user = $this->Users->getRecords([], ['id' => 1], ['contain' => 'Products']);
 
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->assertNotEmpty($user[0]['products']);
+        $this->assertTrue(is_array($user[0]['products']));
     }
 }

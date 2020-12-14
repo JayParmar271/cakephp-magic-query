@@ -1,7 +1,6 @@
 <?php
 namespace MagicQuery\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -36,10 +35,11 @@ class UsersTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Posts', [
+        $this->hasMany('Products', [
             'foreignKey' => 'user_id',
-            'className' => 'MagicQuery.Posts',
+            'className' => 'MagicQuery.Products',
         ]);
+        $this->addBehavior('MagicQuery.Query');
     }
 
     /**
